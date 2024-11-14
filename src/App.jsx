@@ -4,8 +4,9 @@ import TaskManager from "./Components/TaskManager";
 function App() {
   return (
     <>
-      <h1 className="bg-gray-400 text-purple-500 text-center">Task Manager</h1>
-      <TaskManager/>
+      <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
+      <TaskManager />
+    </div>
     </>
   );
 }
