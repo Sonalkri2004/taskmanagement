@@ -4,7 +4,7 @@ import TaskManager from "./Components/TaskManager";
 function App() {
   return (
     <>
-      <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6">
+      <div className="bg-gradient-to-br from-gray-200 via-gray-100 to-white min-h-screen flex items-center justify-center p-6 text-gray-900">
       <TaskManager />
     </div>
     </>
@@ -12,3 +12,4 @@ function App() {
 }
 
 export default App;
+
