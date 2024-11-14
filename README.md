@@ -33,8 +33,7 @@ The Task Manager is a web application built using React, Vite, and Tailwind CSS.
 ### Installation
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/task-manager.git
-    cd task-manager
+    git clone https://github.com/Sonalkri2004/taskmanagement.git
     ```
 
 2. **Install Dependencies**:
@@ -54,7 +53,7 @@ The Task Manager is a web application built using React, Vite, and Tailwind CSS.
     ```bash
     yarn dev
     ```
-   This command will start the development server. You can access the application at `http://localhost:3000`.
+   This command will start the development server. You can access the application at `http://localhost:5173`.
 
 ## Assumptions Made During Development
 - Tasks only have a title and an optional priority setting.
@@ -65,10 +64,15 @@ The Task Manager is a web application built using React, Vite, and Tailwind CSS.
 ## Screenshots
 
 ### Home Screen
-![Task Manager Home Screen](./screenshots/home_screen.png)
+![image](https://github.com/user-attachments/assets/9eea02ae-9aae-406a-8691-69a9e52165f8)
+![image](https://github.com/user-attachments/assets/9d6706ae-7911-4fa9-be67-37638528c895)
+![image](https://github.com/user-attachments/assets/1a70e813-9856-483d-9224-c8c2a88fc549)
+
 
 ### Task with Priority and Search
-![Task with Priority and Search](./screenshots/task_priority_search.png)
+![image](https://github.com/user-attachments/assets/2bab09d9-4558-411c-92ab-28606ed9e173)
+![image](https://github.com/user-attachments/assets/cde8d7b1-6e27-4a0a-b5ab-b57ca047091f)
+![image](https://github.com/user-attachments/assets/06498a2a-4bda-4d9f-a4f5-872cc4b463c6)
 
 ## Commit and Version Control
 
