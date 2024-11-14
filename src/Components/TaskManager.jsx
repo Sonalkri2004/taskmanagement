@@ -22,6 +22,9 @@ const TaskManager = () => {
     }
   };
 
+  const deleteTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index));
+  };
 
   return (
     <div className="w-full max-w-md bg-white rounded shadow p-6">
@@ -48,7 +51,13 @@ const TaskManager = () => {
       <ul>
         {tasks.map((task, index) => (
           <li key={index} className="flex justify-between items-center mb-2">
-            <span>{task.title}</span>
+            <span className={task.completed ? 'line-through' : ''}>{task.title}</span>
+            <button
+              className="text-red-500"
+              onClick={() => deleteTask(index)}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
