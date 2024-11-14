@@ -57,7 +57,7 @@ const TaskManager = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white bg-opacity-80 backdrop-blur-lg p-6 md:p-10 rounded-3xl shadow-2xl min-h-screen flex flex-col gap-6 animate__animated animate__swing">
+    <div className="w-full max-w-4xl mx-auto bg-white bg-opacity-80 backdrop-blur-lg p-6 sm:p-10 rounded-3xl shadow-2xl min-h-screen flex flex-col gap-6 animate__animated animate__swing">
       {/* Search Bar */}
       <div className="flex justify-center mb-6">
         <input
@@ -70,20 +70,43 @@ const TaskManager = () => {
       </div>
 
       {/* Filter Options */}
-      <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-6">
-        {["All", "Completed", "Incomplete", "High", "Medium", "Low"].map((option) => (
-          <button
-            key={option}
-            onClick={() => setFilter(option)}
-            className={`px-3 md:px-4 py-1 md:py-2 rounded-full ${
-              filter === option
-                ? `bg-${priorityStyles[option] || 'blue-500'} text-white`
-                : "bg-gray-200 text-gray-700"
-            } shadow-md text-xs md:text-sm font-semibold transition-transform transform hover:scale-105`}
-          >
-            {option} {option === "High" || option === "Medium" || option === "Low" ? "Priority" : ""}
-          </button>
-        ))}
+      <div className="flex justify-center gap-4 mb-6 flex-wrap">
+        <button
+          onClick={() => setFilter("All")}
+          className={`px-4 py-2 rounded-full ${filter === "All" ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"} shadow-md`}
+        >
+          All
+        </button>
+        <button
+          onClick={() => setFilter("Completed")}
+          className={`px-4 py-2 rounded-full ${filter === "Completed" ? "bg-green-500 text-white" : "bg-gray-200 text-gray-700"} shadow-md`}
+        >
+          Completed
+        </button>
+        <button
+          onClick={() => setFilter("Incomplete")}
+          className={`px-4 py-2 rounded-full ${filter === "Incomplete" ? "bg-red-500 text-white" : "bg-gray-200 text-gray-700"} shadow-md`}
+        >
+          Incomplete
+        </button>
+        <button
+          onClick={() => setFilter("High")}
+          className={`px-4 py-2 rounded-full ${filter === "High" ? "bg-red-500 text-white" : "bg-gray-200 text-gray-700"} shadow-md`}
+        >
+          High Priority
+        </button>
+        <button
+          onClick={() => setFilter("Medium")}
+          className={`px-4 py-2 rounded-full ${filter === "Medium" ? "bg-yellow-500 text-white" : "bg-gray-200 text-gray-700"} shadow-md`}
+        >
+          Medium Priority
+        </button>
+        <button
+          onClick={() => setFilter("Low")}
+          className={`px-4 py-2 rounded-full ${filter === "Low" ? "bg-green-500 text-white" : "bg-gray-200 text-gray-700"} shadow-md`}
+        >
+          Low Priority
+        </button>
       </div>
 
       {/* Task Input and Priority */}
@@ -91,7 +114,7 @@ const TaskManager = () => {
         <select
           onChange={(e) => setPriority(e.target.value)}
           value={priority}
-          className="border p-3 rounded-full bg-white bg-opacity-60 text-gray-700 border-gray-300 shadow-md focus:outline-none"
+          className="border p-3 rounded-full bg-white bg-opacity-60 text-gray-700 border-gray-300 shadow-md focus:outline-none w-full sm:w-auto"
         >
           <option value="High">High Priority</option>
           <option value="Medium">Medium Priority</option>
@@ -99,7 +122,7 @@ const TaskManager = () => {
         </select>
         <input
           type="text"
-          className="flex-grow border p-3 rounded-full bg-white bg-opacity-60 placeholder-gray-500 text-gray-800 focus:outline-none border-gray-300 shadow-md"
+          className="flex-grow w-full sm:w-auto border p-3 rounded-full bg-white bg-opacity-60 placeholder-gray-500 text-gray-800 focus:outline-none border-gray-300 shadow-md"
           placeholder="Add a new task"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
@@ -115,7 +138,7 @@ const TaskManager = () => {
       {/* Task List */}
       <AnimatePresence>
         {filteredTasks.length > 0 ? (
-          <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {filteredTasks.map((task, index) => (
               <motion.div
                 key={index}
@@ -123,44 +146,39 @@ const TaskManager = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className={`p-4 rounded-lg shadow-lg bg-white bg-opacity-60 backdrop-blur-lg relative border-l-4 ${
-                  task.completed ? 'border-green-500' : priorityStyles[task.priority]
-                }`}
+                className={`p-4 rounded-lg shadow-lg bg-white bg-opacity-60 backdrop-blur-lg relative border-l-4 ${task.completed ? 'border-green-500' : `border-${priorityStyles[task.priority]}`}`}
               >
-                <span
-                  className={`absolute top-2 right-2 text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full shadow-md ${
-                    priorityStyles[task.priority]
-                  }`}
-                >
-                  {task.priority} Priority
-                </span>
-
-                <h3
-                  className={`text-lg mt-4 font-semibold ${
-                    task.completed ? 'line-through text-gray-400' : 'text-gray-800'
-                  }`}
-                >
-                  {task.title}
-                </h3>
-
-                <div className="flex justify-between items-center mt-4 space-x-2">
-                  <button
-                    className={`w-full text-xs font-semibold px-4 py-2 rounded-full shadow-md transition-colors duration-200 ${
-                      task.completed
-                        ? 'bg-green-500 text-white hover:bg-green-600'
-                        : 'bg-blue-500 text-white hover:bg-blue-600'
-                    }`}
-                    onClick={() => completeTask(index)}
+                <div className="p-4 bg-white rounded-lg shadow-lg space-y-4 relative">
+                  {/* Priority Label at the Top */}
+                  <span
+                    className={`absolute top-2 right-2 text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full shadow-md ${priorityStyles[task.priority]}`}
                   >
-                    {task.completed ? 'Undo' : 'Complete'}
-                  </button>
+                    {task.priority} Priority
+                  </span>
 
-                  <button
-                    className="w-full text-xs font-semibold bg-red-500 text-white px-4 py-2 rounded-full shadow-md transition-colors duration-200 hover:bg-red-600"
-                    onClick={() => deleteTask(index)}
-                  >
-                    Delete
-                  </button>
+                  {/* Task Title */}
+                  <h3 className={`text-lg font-semibold ${task.completed ? 'line-through text-gray-400' : 'text-gray-800'}`}>
+                    {task.title}
+                  </h3>
+
+                  {/* Task Actions: Complete and Delete Buttons */}
+                  <div className="flex justify-between items-center mt-4 space-x-2">
+                    {/* Complete/Undo Button */}
+                    <button
+                      className={`w-full text-xs font-semibold px-4 py-2 rounded-full shadow-md transition-colors duration-200 ${task.completed ? 'bg-green-500 text-white hover:bg-green-600' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
+                      onClick={() => completeTask(index)}
+                    >
+                      {task.completed ? 'Undo' : 'Complete'}
+                    </button>
+
+                    {/* Delete Button */}
+                    <button
+                      className="w-full text-xs font-semibold bg-red-500 text-white px-4 py-2 rounded-full shadow-md transition-colors duration-200 hover:bg-red-600"
+                      onClick={() => deleteTask(index)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}
