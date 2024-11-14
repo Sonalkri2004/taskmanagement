@@ -23,7 +23,6 @@ const TaskManager = () => {
   };
 
 
-
   return (
     <div className="w-full max-w-md bg-white rounded shadow p-6">
       <h2 className="text-2xl font-bold mb-4">Task Manager</h2>
@@ -45,7 +44,14 @@ const TaskManager = () => {
         </button>
       </div>
 
-      
+      {/* List of tasks */}
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index} className="flex justify-between items-center mb-2">
+            <span>{task.title}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
