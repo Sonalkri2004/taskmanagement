@@ -1,10 +1,10 @@
 # Task Manager Application
 
-## Overview
+## Overview➡️
 
 The Task Manager is a web application built using React, Vite, and Tailwind CSS. It allows users to efficiently manage tasks with basic features such as adding and deleting tasks, as well as enhanced functionalities like task search, task completion, priority setting, sorting, and UI animations. The app also utilizes local storage to persist data, ensuring that tasks remain available even after the page is refreshed.
 
-## Features
+## Features👨‍💻
 
 ### Basic Features
 1. **Task Input**: Users can add tasks with a title.
@@ -18,13 +18,13 @@ The Task Manager is a web application built using React, Vite, and Tailwind CSS.
 4. **Task Sorting**: Enables users to sort tasks based on criteria like priority or completion status.
 5. **UI Animation**: UI animations enhance the user experience when adding, deleting, or updating tasks.
 
-## Tech Stack
+## Tech Stack⚒️
 
 - **Framework**: React (with Vite as the bundler for fast development)
 - **Styling**: Tailwind CSS
 - **Language**: TypeScript/JavaScript (choose one based on preference)
 
-## Setup and Launch Process
+## Setup and Launch Process📐
 
 ### Prerequisites
 - Node.js (v14 or higher)
@@ -61,7 +61,7 @@ The Task Manager is a web application built using React, Vite, and Tailwind CSS.
 - Task priority is assumed to have three levels (High, Medium, Low) for simplicity.
 - Animations are lightweight to keep the UI responsive.
 
-## Screenshots
+## Screenshots📸
 
 ### Home Screen
 ![image](https://github.com/user-attachments/assets/9eea02ae-9aae-406a-8691-69a9e52165f8)
@@ -74,7 +74,10 @@ The Task Manager is a web application built using React, Vite, and Tailwind CSS.
 ![image](https://github.com/user-attachments/assets/cde8d7b1-6e27-4a0a-b5ab-b57ca047091f)
 ![image](https://github.com/user-attachments/assets/06498a2a-4bda-4d9f-a4f5-872cc4b463c6)
 
-## Commit and Version Control
+## Live Deployment Link🔗
+https://task-manager-kohl-nu.vercel.app/
+
+## Commit and Version Control🌐
 
 Meaningful commits are maintained to ensure each feature and fix can be easily traced. Please refer to the commit history for detailed changes.
 
